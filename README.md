@@ -1,2 +1,2 @@
-# Process_Killer
-An process killer batch write in windows command line.
+# Process killer
+An process killer batch file.
