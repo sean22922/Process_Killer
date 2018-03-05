@@ -52,7 +52,7 @@ echo 也許處理程序原本就不存在? 或是我沒拿到系統管理權限?
 ) else (
 echo 處理程序中止成功...
 )
-goto 3
+goto 3_zhtw
 
 :3_zhtw
 echo 按任意鍵關閉視窗...
@@ -80,7 +80,7 @@ echo Maybe the process doesn't even exist? or i didn't get admin privileges?
 ) else (
 echo Process terminated sucessfully...
 )
-goto 3
+goto 3_en
 
 :3_en
 echo Press any botton to close this window....
