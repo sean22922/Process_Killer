@@ -1,11 +1,12 @@
 @echo off
 
 
-FOR /F "tokens=3 delims= " %%G in ('reg query "hklm\system\controlset001\control\nls\language" /v Installlanguage') DO (
-IF [%%G] EQU [0404] (
+for /F "tokens=3 delims= " %%G in ('reg query "hklm\system\controlset001\control\nls\language" /v Installlanguage') do (
+if [%%G] EQU [0404] (
   goto main_zhtw
-) ELSE (
+) else (
   goto main_en
+)
 )
 
 :main_zhtw
