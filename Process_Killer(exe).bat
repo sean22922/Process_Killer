@@ -1,6 +1,35 @@
 @echo off
 
+echo 警告! 本程式需要系統管理員權限
+echo Warning! This program need administrator privileges.
+echo 且操作不當,可能導致系統藍屏或導致尚未儲存的工作遺失
+echo And if you do something wrong with it, it may cause BS or lose your unsaved work.
+echo 若您覺得本程式不安全,請馬上按下視窗右上角的大叉叉
+echo if you think this program is not safe, please press the big X botton on the top-right of this window.
+echo.
+echo 按下任意鍵以繼續...
+echo Press any botton to procced...
+pause >nul
 
+
+call :isAdmin
+if %errorLevel% == 0 (
+    goto language
+) else (
+	echo.
+	echo 失敗: 當前權限不足
+    echo Failure: Current permissions inadequate.
+	echo.
+	echo 按任意鍵關閉視窗...
+	echo Press any botton to close this window....
+)
+pause >nul
+exit /b
+:isAdmin
+fsutil dirty query %systemdrive% >nul
+exit /b
+
+:language
 for /F "tokens=3 delims= " %%G in ('reg query "hklm\system\controlset001\control\nls\language" /v Installlanguage') do (
 if [%%G] EQU [0404] (
   goto main_zhtw
@@ -35,24 +64,26 @@ if errorlevel 1 goto 1_en
 cls
 taskkill /im StudentMain.exe /f >nul 2>&1
 if errorlevel 1 (
-echo 處理程式中止失敗...
-echo 也許處理程序原本就不存在? 或是我沒拿到系統管理權限?
+echo 處理程式中止失敗... 也許該處理程序原本就不存在?
 ) else (
 echo 處理程序中止成功...
 )
-goto 3
+echo 按任意鍵關閉視窗...
+pause >nul
+exit
 
 :2_zhtw
 cls
 set /p processname=輸入你想要終止的處理程序名稱(不包含結尾的.exe):
 taskkill /im %processname%.exe /f >nul 2>&1
 if errorlevel 1 (
-echo 處理程式中止失敗...
-echo 也許處理程序原本就不存在? 或是我沒拿到系統管理權限?
+echo 處理程式中止失敗... 也許該處理程序原本就不存在?
 ) else (
 echo 處理程序中止成功...
 )
-goto 3_zhtw
+echo 按任意鍵關閉視窗...
+pause >nul
+exit
 
 :3_zhtw
 echo 按任意鍵關閉視窗...
@@ -64,11 +95,13 @@ cls
 taskkill /im StudentMain.exe /f >nul 2>&1
 if errorlevel 1 (
 echo Failed to terminate process... 
-echo Maybe the process doesn't even exist? or i didn't get admin privileges?
+echo Maybe the process doesn't even exist?
 ) else (
 echo Process terminated sucessfully...
 )
-goto 3
+echo Press any botton to close this window....
+pause >nul
+exit
 
 :2_en
 cls
@@ -76,11 +109,13 @@ set /p processname=The process name you want to terminate(don't enter .exe):
 taskkill /im %processname%.exe /f >nul 2>&1
 if errorlevel 1 (
 echo Failed to terminate process... 
-echo Maybe the process doesn't even exist? or i didn't get admin privileges?
+echo Maybe the process doesn't even exist?
 ) else (
 echo Process terminated sucessfully...
 )
-goto 3_en
+echo Press any botton to close this window....
+pause >nul
+exit
 
 :3_en
 echo Press any botton to close this window....
