@@ -7,9 +7,9 @@ echo And if you do something wrong with it, it may cause BS or lose your unsaved
 echo 若您覺得本程式不安全,請馬上按下視窗右上角的大叉叉
 echo if you think this program is not safe, please press the big X botton on the top-right of this window.
 echo.
-echo 按下任意鍵以繼續...
-echo Press any botton to procced...
-pause >nul
+echo 按下任意鍵以繼續... (10秒後將自動執行)
+echo Press any botton to procced... (Auto start at 10 seconds)
+timeout /T 10
 cls
 
 icacls "%SYSTEMROOT%\system32\config\system" >nul
