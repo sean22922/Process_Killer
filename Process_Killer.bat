@@ -9,7 +9,7 @@ echo if you think this program is not safe, please press the big X botton on the
 echo.
 echo 按下任意鍵以繼續... (10秒後將自動執行)
 echo Press any botton to procced... (Auto start at 10 seconds)
-timeout /T 10
+timeout /T 10 >nul
 cls
 
 icacls "%SYSTEMROOT%\system32\config\system" >nul
@@ -42,7 +42,7 @@ echo 本程式 20 秒後將自動終止學生端處理程序
 echo 1. 終止學生端處理程序
 echo 2. 自行輸入要終止的處理程序
 echo 3. 離開
-choice /T 20 /C 123 /D 1 /M "請輸入選項" /n
+choice /T 20 /C 123 /D 1 /M "請輸入選項:" /n
 if errorlevel 3 (
 	cls
 	echo 已取消... 
