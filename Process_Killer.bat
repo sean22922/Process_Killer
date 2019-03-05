@@ -146,11 +146,12 @@ echo                                           -syyy/
 echo                                           :yyyy-       作者:關@Kuan(sean22922)
 echo                                           -syyy:       小屋網址:https://home.gamer.com.tw/sean22922
 echo                                           .oyyys`      Github:https://github.com/sean22922
-echo                                            :syyy+`     Copyright (c) 2018 Sean Kuan. 本程式已開源，並使用MIT自由開源軟體授權條款。
+echo                                            :syyy+`     Copyright (c) 2018 Sean Kuan. 本程式使用MIT自由開源軟體授權條款。
 echo                                             :syyso.    (巴哈姆特電玩資訊站之圖樣版權非本人所擁有)
 echo                                              .+syys+-`                    
 echo                                                .+ssyss/:.``````.-.        
 echo                                                  `.:+ossysso+/-.                       
+echo.
 echo 按任意鍵關閉視窗...
 pause >nul
 exit
@@ -254,6 +255,7 @@ echo                                             :syyso.    (The "巴哈姆特電玩資
 echo                                              .+syys+-`                    
 echo                                                .+ssyss/:.``````.-.        
 echo                                                  `.:+ossysso+/-.                       
+echo.
 echo Press any botton to close this window....
 pause >nul
 exit
