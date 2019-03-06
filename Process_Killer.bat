@@ -28,6 +28,7 @@ echo.
 echo 按下任意鍵以繼續... (10秒後將自動執行)
 echo Press any botton to procced... (Auto start at 10 seconds.)
 timeout /T 10 >nul
+goto language
 cls
 
 :administrator_no
@@ -49,6 +50,7 @@ echo.
 echo 按下任意鍵以繼續... (10秒後將自動執行)
 echo Press any botton to procced... (Auto start at 10 seconds.)
 timeout /T 10 >nul
+goto language
 cls
 
 :language
