@@ -1,4 +1,5 @@
 @echo off
+setlocal EnableDelayedExpansion
 goto check_Permissions
 
 :check_Permissions
@@ -78,12 +79,12 @@ echo 2. 自行輸入要終止的處理程序(PID)
 echo 3. 離開
 echo.
 echo 0. 作者資訊
-set /p choice=選項: || set choice=nothingchosen
-if "%choice%"=="nothingchosen" goto error_zhtw
-if /i "%choice%"=="0" goto 0_zhtw
-if /i "%choice%"=="3" goto 3_zhtw
-if /i "%choice%"=="2" goto 2_zhtw
-if /i "%choice%"=="1" goto 1_zhtw
+choice /N /C 1230 /M 選項:
+if %ERRORLEVEL% EQU 4 goto 0_zhtw
+if %ERRORLEVEL% EQU 3 goto 3_zhtw
+if %ERRORLEVEL% EQU 2 goto 2_zhtw
+if %ERRORLEVEL% EQU 1 goto 1_zhtw
+
 
 :1_zhtw
 cls
@@ -148,7 +149,7 @@ echo                                           -syyy/
 echo                                           :yyyy-       作者:關@Kuan(sean22922)
 echo                                           -syyy:       小屋網址:https://home.gamer.com.tw/sean22922
 echo                                           .oyyys`      Github:https://github.com/sean22922
-echo                                            :syyy+`     Copyright (c) 2018 Sean Kuan. 本程式使用MIT自由開源軟體授權條款。
+echo                                            :syyy+`     Copyright (c) 2018 Sean Kuan. 本程式使用MIT授權條款。
 echo                                             :syyso.    (巴哈姆特電玩資訊站之圖樣版權非本人所擁有)
 echo                                              .+syys+-`                    
 echo                                                .+ssyss/:.``````.-.        
@@ -157,12 +158,6 @@ echo.
 echo 按任意鍵關閉視窗...
 pause >nul
 exit
-
-:error_zhtw
-echo 選項錯誤!請重新輸入選項!
-timeout /T 3 >nul
-cls
-goto main_zhtw
 
 :main_en
 cls
@@ -180,12 +175,11 @@ echo 2. Enter the process PID you want to terminate.
 echo 3. Leave
 echo.
 echo 0. Author Information
-set /p choice=Option: || set choice=nothingchosen
-if "%choice%"=="nothingchosen" goto error_zhtw
-if /i "%choice%"=="0" goto 0_zhtw
-if /i "%choice%"=="3" goto 3_zhtw
-if /i "%choice%"=="2" goto 2_zhtw
-if /i "%choice%"=="1" goto 1_zhtw
+choice /N /C 1230 /M Option:
+if %ERRORLEVEL% EQU 4 goto 0_en
+if %ERRORLEVEL% EQU 3 goto 3_en
+if %ERRORLEVEL% EQU 2 goto 2_en
+if %ERRORLEVEL% EQU 1 goto 1_en
 
 :1_en
 cls
@@ -261,9 +255,3 @@ echo.
 echo Press any botton to close this window....
 pause >nul
 exit
-
-:error_en
-echo The option you entered is wrong! Please reenter!
-timeout /T 3 >nul
-cls
-goto main_zhtw
